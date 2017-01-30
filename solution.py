@@ -22,13 +22,12 @@ def naked_twins(values):
         the values dictionary with the naked twins eliminated from peers.
     """
     for unit in unitlist:
-        # unit_value_list gets value values correponding to all box of a unit
+        # get lilst for each unit
         unit_value_list = [values[i] for i in unit]
         # naked_twin_value_list: 
-        # Might exist same vaule for more than two values
         # Might exist more than one pair of same lists
         naked_twin_value_list = list(
-            set([unit_val for unit_val in unit_value_list if len(unit_val) == 2 and unit_value_list.count(unit_val) >= 2]))
+            set([unit_val for unit_val in unit_value_list if len(unit_val) == 2 and unit_value_list.count(unit_val) == 2]))
         for naked_twin_value in naked_twin_value_list:
             for replacement in naked_twin_value:
                 for idx, unit_box_val in enumerate(unit_value_list):
